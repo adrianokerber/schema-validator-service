@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http.HttpResults;
+using SchemaValidator.HttpService.Schemas;
 using SchemaValidator.HttpService.SchemaValidation;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,9 +24,11 @@ app.UseHttpsRedirection();
 app.MapPost("/validate-schema", ([Required] ValidationRequest validationRequest) =>
     {
         // 1. Obter schema do DB ou factory baseado nos metadados
-        // 2. Validar o json vs. schema
-        // 3. Retornar o resultado se válido ou não
-        var result = PersonSchemaValidator.Validate(validationRequest.Json);
+        var schema = SchemaFactory.CreateJsonSchema(validationRequest.Metadata.SchemaType);
+        if (schema.IsFailure)
+            return Results.BadRequest($"Schema error... {schema.Error}");
+        
+        var result = SchemaValidation.Exec(schema.Value, validationRequest.Json);
 
         if (result.IsFailure)
             return Results.BadRequest($"Errors:\n{result.Error}");
@@ -39,4 +43,4 @@ app.MapPost("/validate-schema", ([Required] ValidationRequest validationRequest)
 app.Run();
 
 public record ValidationRequest(Metadata Metadata, string Json);
-public record Metadata(string SchemaId);
+public record Metadata(string SchemaType);
