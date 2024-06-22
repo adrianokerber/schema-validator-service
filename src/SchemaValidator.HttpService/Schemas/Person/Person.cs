@@ -1,3 +1,4 @@
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using NJsonSchema.Annotations;
@@ -18,8 +19,7 @@ public record Person
 
     [Range(2, 5)]
     public int NumberWithRange { get; set; }
-
-    [JsonSchemaDate]
+    
     public DateTime Birthday { get; set; }
 
     public Company Company { get; set; }
