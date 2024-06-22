@@ -8,15 +8,23 @@ public static class SchemaFactory
     // TODO: revamp factory!
     public static Result<JsonSchema> CreateJsonSchema(string schemaType)
     {
-        switch (schemaType)
-        {
-            case "Person":
-                return CreatePersonSchema();
-            default:
-                return Result.Failure<JsonSchema>("Schema not found");
-        }
+        var schema = RetrieveRegisteredSchema(schemaType);
+        if (schema.HasNoValue)
+            return Result.Failure<JsonSchema>("Schema not found");
+        return schema.Value;
     }
 
-    private static JsonSchema CreatePersonSchema()
-        => JsonSchema.FromType<Person.Person>();
+    private static Maybe<JsonSchema> RetrieveRegisteredSchema(string type)
+    {
+        var schema = _jsonSchemaRegistry.GetValueOrDefault(type);
+        if (schema == null)
+            return Maybe<JsonSchema>.None;
+        return schema;
+    }
+    
+    // TODO: revamp the way schemas are registered!
+    static Dictionary<string, JsonSchema> _jsonSchemaRegistry = new Dictionary<string, JsonSchema>()
+    {
+        { "Person", JsonSchema.FromType<Person.Person>() },
+    };
 }
