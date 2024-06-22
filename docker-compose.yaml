@@ -1,0 +1,11 @@
+﻿services:
+  schemavalidator.httpservice:
+    container_name: schema-validator.httpservice
+    image: schemavalidator.httpservice
+    build:
+      context: .
+      dockerfile: src/SchemaValidator.HttpService/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
