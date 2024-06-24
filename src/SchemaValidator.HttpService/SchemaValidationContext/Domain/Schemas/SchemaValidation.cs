@@ -1,13 +1,14 @@
 using CSharpFunctionalExtensions;
 using NJsonSchema;
+using SchemaValidator.HttpService.Shared;
 
-namespace SchemaValidator.HttpService.SchemaValidation;
+namespace SchemaValidator.HttpService.SchemaValidationContext.Domain.Schemas;
 
-public static class SchemaValidation
+public class SchemaValidation : IService<SchemaValidation>
 {
     private const string ErrorTemplate = "Path: {0} Error: {1}";
     
-    public static Result Exec(JsonSchema schema, string json)
+    public Result Exec(JsonSchema schema, string json)
     {
         var errors = schema.Validate(json);
         
@@ -15,7 +16,7 @@ public static class SchemaValidation
         foreach (var error in errors)
         {
             var errorMessage = string.Format(ErrorTemplate, error.Path, error.Kind);
-            result = Result.Combine("\n", result, Result.Failure(errorMessage));
+            result = Result.Combine(" \n", result, Result.Failure(errorMessage));
         }
 
         return result;
