@@ -1,6 +1,13 @@
-@SchemaValidator.HttpService_HostAddress = http://localhost:5286
+@HttpService = http://localhost:5286
 
-GET {{SchemaValidator.HttpService_HostAddress}}/weatherforecast/
+POST {{HttpService}}/validate-schema/
 Accept: application/json
+
+{
+    "Metadata": {
+        "SchemaType": "Person"
+    },
+    "Json": "{}"
+}
 
 ###

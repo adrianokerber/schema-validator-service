@@ -1,9 +1,7 @@
-using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using NJsonSchema.Annotations;
 
-namespace SchemaValidator.HttpService.Schemas.Person;
+namespace SchemaValidator.HttpService.SchemaValidationContext.Domain.Schemas.Person;
 
 public record Person
 {
