@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
-namespace SchemaValidator.HttpService.Shared;
+namespace SchemaValidator.Shared;
 
 public sealed class HttpResponseFactory : IService<HttpResponseFactory>
 {

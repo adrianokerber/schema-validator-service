@@ -16,14 +16,15 @@ try
 {
     Log.ForContext("ApplicationName", appName).Information("Starting application");
     Result.Configuration.ErrorMessagesSeparator = "§ ";
-
+    
     builder.Services
         .AddLogs(builder.Configuration)
         .AddEndpointsApiExplorer()
-        .AddFastEndpoints()
+        .AddFastEndpoints(o
+            => o.SourceGeneratorDiscoveredTypes.AddRange(typeof(SchemaValidator.Core).Assembly.GetTypes()))
         .AddOpenApiSpecs()
         .AddHttpGlobalExceptionHandler();
-
+    
     builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
     {
         builder.RegisterModule(new ApplicationModule());

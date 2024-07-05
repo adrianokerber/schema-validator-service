@@ -1,7 +1,7 @@
 using FastEndpoints;
-using SchemaValidator.HttpService.Shared;
+using SchemaValidator.Shared;
 
-namespace SchemaValidator.HttpService.SchemaValidationContext.Features.ValidateJsonSchema;
+namespace SchemaValidator.SchemaValidationContext.Features.ValidateJsonSchema;
 
 public class PostEndpoint : Endpoint<PostRequest, object>
 {

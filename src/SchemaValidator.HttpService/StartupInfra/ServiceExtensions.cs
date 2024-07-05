@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using SchemaValidator.HttpService.Shared;
+using SchemaValidator.Shared;
 using Serilog;
 using Serilog.Exceptions;
 using Serilog.Filters;
@@ -205,7 +205,7 @@ internal static class ServicesExtensions
 
     public static IServiceCollection AddCustomMvc(this IServiceCollection services)
     {
-        var assembly = Assembly.Load(typeof(Env).Assembly.ToString());
+        var assembly = Assembly.Load(typeof(Core).Assembly.ToString());
         services
             .AddControllers()
             .AddApplicationPart(assembly);
