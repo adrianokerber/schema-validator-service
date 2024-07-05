@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		docker-compose.yaml = docker-compose.yaml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaValidator", "src\SchemaValidator\SchemaValidator.csproj", "{F4B3D4C8-0EE6-41C0-AA19-5DDC6A488954}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{03C53070-0305-4384-B1A0-9B93C25E7D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03C53070-0305-4384-B1A0-9B93C25E7D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03C53070-0305-4384-B1A0-9B93C25E7D72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4B3D4C8-0EE6-41C0-AA19-5DDC6A488954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4B3D4C8-0EE6-41C0-AA19-5DDC6A488954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4B3D4C8-0EE6-41C0-AA19-5DDC6A488954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4B3D4C8-0EE6-41C0-AA19-5DDC6A488954}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

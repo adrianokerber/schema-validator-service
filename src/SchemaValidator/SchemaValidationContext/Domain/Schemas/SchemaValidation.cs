@@ -2,9 +2,9 @@ using System.Text;
 using CSharpFunctionalExtensions;
 using NJsonSchema;
 using NJsonSchema.Validation;
-using SchemaValidator.HttpService.Shared;
+using SchemaValidator.Shared;
 
-namespace SchemaValidator.HttpService.SchemaValidationContext.Domain.Schemas;
+namespace SchemaValidator.SchemaValidationContext.Domain.Schemas;
 
 public class SchemaValidation : IService<SchemaValidation>
 {

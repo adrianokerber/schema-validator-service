@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace SchemaValidator.HttpService.SchemaValidationContext.Domain.Schemas.Person;
+namespace SchemaValidator.SchemaValidationContext.Domain.Schemas.Person;
 
 public record Person
 {

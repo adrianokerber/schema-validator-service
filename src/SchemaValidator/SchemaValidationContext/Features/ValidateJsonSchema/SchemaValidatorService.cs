@@ -1,8 +1,8 @@
 using CSharpFunctionalExtensions;
-using SchemaValidator.HttpService.SchemaValidationContext.Domain.Schemas;
-using SchemaValidator.HttpService.Shared;
+using SchemaValidator.SchemaValidationContext.Domain.Schemas;
+using SchemaValidator.Shared;
 
-namespace SchemaValidator.HttpService.SchemaValidationContext.Features.ValidateJsonSchema;
+namespace SchemaValidator.SchemaValidationContext.Features.ValidateJsonSchema;
 
 public class SchemaValidatorService : IService<SchemaValidatorService>
 {

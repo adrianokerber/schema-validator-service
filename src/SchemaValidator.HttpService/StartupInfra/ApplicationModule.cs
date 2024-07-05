@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using SchemaValidator.HttpService.Shared;
+using SchemaValidator.Shared;
 
 namespace SchemaValidator.HttpService.StartupInfra;
 
@@ -8,7 +8,7 @@ public class ApplicationModule : Autofac.Module
     protected override void Load(ContainerBuilder builder)
     {
         builder
-            .RegisterAssemblyTypes(typeof(Env).Assembly)
+            .RegisterAssemblyTypes(typeof(Core).Assembly)
             .AsClosedTypesOf(typeof(IService<>))
             .InstancePerLifetimeScope();
 

@@ -1,4 +1,4 @@
-﻿namespace SchemaValidator.HttpService.Shared;
+﻿namespace SchemaValidator.Shared;
 
 /// <summary>
 /// Interface for any service that requires DI.
